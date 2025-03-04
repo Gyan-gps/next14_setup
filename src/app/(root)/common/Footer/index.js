@@ -23,6 +23,7 @@ const footerLinks = {
 }
 
 export default function Footer() {
+  console.log(process.env)
   return (
     <div className="footer-one">
       <div className="container">
