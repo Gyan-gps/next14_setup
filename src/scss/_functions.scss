@@ -1,0 +1,85 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/bootstrap-grid";
+
+// base screen size is 1200px
+@function font-size($min, $max, $viewport-width: 1920) {
+  $result: $max / $viewport-width * 100;
+  @return clamp(#{$min}px, #{$result}vw, #{$max}px);
+}
+
+@function main-content-height($header-height, $footer-height) {
+  @return calc(100vh - #{$header-height} - #{$footer-height});
+}
+
+@function image-size($min, $max, $aspect-ratio: 16/9) {
+  $result: $max / $aspect-ratio * 100;
+  @return clamp(#{$min}px, #{$result}vw, #{$max}px);
+}
+
+@function clamp-value($min, $max, $viewport: vw, $viewport-width: 1920) {
+  $middle: (
+    $min + $max) / 2;
+  $middle-in-vw: (
+    $middle / $viewport-width) * 100;
+  @return clamp(#{$min}px, #{$middle-in-vw}#{$viewport}, #{$max}px
+);
+}
+
+@function into-rem($px) {
+  @return $px / 16 * 1rem;
+}
+
+@function clamp-by-ratio($min, $max, $percent: false) {
+  $ratio: calc(calc($max / 1920) * 100); // Calculate ratio based on 1920px viewport width
+  $vw: "vw";
+  $px: "px";
+
+  @if $percent {
+    $ratio: 100%;
+    @return clamp(#{$min}#{$px},
+      #{$ratio},
+      #{$max}#{$px}); // Return CSS clamp() function
+  }
+
+  @else {
+    @return clamp(#{$min}#{$px},
+      #{$ratio}#{$vw},
+      #{$max}#{$px}); // Return CSS clamp() function
+  }
+}
+
+@function remCal($size) {
+  @if ($size =="auto" or $size =="100%") {
+    @return $size;
+  }
+
+  @return ($size/$rem-baseline) * 1rem;
+}
+
+@function emCal($em, $size) {
+  @return ($size/$em) * 1em;
+}
+
+@function setColor($color) {
+  @if map-has-key($colors, $color) {
+    @return map-get($colors, $color);
+  }
+
+  @else {
+    @return $color;
+  }
+}
+
+@function setShadeColor($color) {
+  @if map-has-key($shades, $color) {
+    @return map-get($shades, $color);
+  }
+
+  @else {
+    @return $color;
+  }
+}
