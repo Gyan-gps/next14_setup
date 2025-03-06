@@ -8,6 +8,21 @@ const nextConfig = {
         permanent: false,
       }
     ];
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        pathname: "**"
+      },
+
+      {
+        protocol: "https",
+        hostname: "next14-setup-umber.vercel.app",
+        pathname: "**"
+      }
+    ]
   }
 };
 

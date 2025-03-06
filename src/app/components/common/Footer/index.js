@@ -1,6 +1,7 @@
 import Link from "next/link";
 import './index.scss';
 import SocialIcons from "../SocialIcons";
+import Image from "next/image";
 
 const footerLinks = {
   "accountLinks": [
@@ -23,17 +24,16 @@ const footerLinks = {
 }
 
 export default function Footer() {
-  console.log(process.env)
   return (
     <div className="footer-one">
       <div className="container">
         <div className="footer-one__header">
 
           <div className="footer-one__header__logo">
-            {/* <Link href={process.env.PUBLIC_URL + "/homepages/homepage1"}> */}
+            {/* <Link href={process.env.NEXT_PUBLIC_URL + "/homepages/homepage1"}> */}
 
-            <Link href={process.env.PUBLIC_URL + "/"}>
-              <img src={process.env.PUBLIC_URL + "/doc.png"} alt="Logo" />
+            <Link href={process.env.NEXT_PUBLIC_URL + "/"}>
+              <Image src={process.env.NEXT_PUBLIC_URL + "/doc.png"} alt="Logo" width={200} height={200} loading='lazy' />
             </Link>
 
             {/* </Link> */}
@@ -124,19 +124,24 @@ export default function Footer() {
                   Methods.
                 </p>
                 <div className="payment-methods d-flex space-between">
-                  <img height="56.38px" className="payemnt1 mr-2"
+                  <Image className="payemnt1 mr-2"
                     src={
-                      process.env.PUBLIC_URL +
+                      process.env.NEXT_PUBLIC_URL +
                       "/assets/images/footer/phonepe.png"
                     }
                     alt="Payment methods"
+                    width={54}
+                    height={56}
+                    loading='lazy'
                   />
-                  <img height="100%" className="payemnt2"
+                  <Image className="payemnt2"
                     src={
-                      process.env.PUBLIC_URL +
+                      process.env.NEXT_PUBLIC_URL +
                       "/assets/images/footer/payment.png"
                     }
                     alt="Payment methods"
+                    width={350} height={56}
+                    loading='lazy'
                   />
                 </div>
               </div>

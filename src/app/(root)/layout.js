@@ -1,5 +1,5 @@
-import Footer from "./common/Footer"
-import Headers from "./common/Header"
+import Footer from '../components/common/Footer'
+import Headers from '../components/common/Header'
 import '../globals.css'
 
 export const metadata = {
@@ -17,7 +17,7 @@ export default function Layout({ children }) {
         />
       </head>
       <body>
-        {/* <Headers /> */}
+        <Headers />
         {children}
         <Footer />
       </body>
