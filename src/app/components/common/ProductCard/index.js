@@ -15,7 +15,7 @@ function ProductCard({ data }) {
           {saleLogic(data.product_regular_price, data.product_sale_price)}%
           <br /> OFF
         </div>
-        <Link href={process.env.NEXT_PUBLIC_URL + "/product/" + data.product_name.split(" ").join("-")}>
+        <Link href={process.env.NEXT_PUBLIC_URL + "/product/" + data.product_slug}>
           <img
             src={data.product_images[0].image_url}
             alt={data.product_name}
@@ -27,7 +27,7 @@ function ProductCard({ data }) {
         <div className='content'>
           <h3>{data.product_main_category}</h3>
 
-          <Link href={process.env.NEXT_PUBLIC_URL + "/product/" + data.product_name.split(" ").join("-")}>
+          <Link href={process.env.NEXT_PUBLIC_URL + "/product/" + data.product_slug}>
             <h4>{data.product_name}</h4>
           </Link>
           <div className='price'>
