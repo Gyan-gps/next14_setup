@@ -1,0 +1,52 @@
+.banner {
+  .slick-dots {
+    bottom: 60px !important;
+    color: #df3a85;
+  }
+
+  .carouselContainerMobile {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 80px;
+    display: none;
+
+    figure {
+      img {
+        height: auto;
+        width: 100%;
+
+      }
+    }
+
+    .slick-slide {
+      &>div {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  .carouselContainer {
+    margin-bottom: 80px;
+
+    figure {
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 540px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .carouselContainer {
+      display: none;
+    }
+
+    .carouselContainerMobile {
+      margin-top: 10px;
+      display: block;
+    }
+  }
+}

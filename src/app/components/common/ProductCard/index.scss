@@ -1,0 +1,78 @@
+@import "../../../../scss/_functions.scss";
+@import "../../../../scss/mixin.scss";
+@import "../../../../scss/variables";
+@import "../../../../scss/colors.scss";
+
+.homepage-card {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 3px 15px 0 rgba(17, 31, 98, .1);
+  transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
+  margin: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+
+  .sale-banner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 120px;
+    height: 120px;
+    padding: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: .8rem;
+    z-index: 1;
+
+    &::after {
+      position: absolute;
+      top: -1.5em;
+      right: -6em;
+      content: "";
+      width: 12em;
+      height: 6em;
+      transform: rotate(45deg);
+      background-color: red;
+      z-index: -1;
+    }
+  }
+
+  .content {
+    padding: 15px;
+
+    h3 {
+      font-size: 13px;
+      color: #888;
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: $primary-dark;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 5px 0 10px 0;
+
+      &:hover {
+        color: $green;
+      }
+    }
+
+    .price {
+      font-size: 14px;
+      line-height: 2.2;
+
+      span {
+        color: red;
+        text-decoration: line-through;
+        margin-right: 10px;
+      }
+    }
+  }
+}

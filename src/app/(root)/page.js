@@ -1,4 +1,4 @@
-import { getBrands } from "@/api/server";
+import { getBrands, getHome } from "@/api/server";
 import HomePage from "../components/HomePage";
 
 export const metadata = {
@@ -37,11 +37,11 @@ export const metadata = {
   robots: "index, follow",
 };
 
-async function Home() {
-  const data = await getBrands();
+async function Home(context) {
+  const [data, homeData] = await Promise.all([getBrands(), getHome()]);
   return (
     <div>
-      <HomePage data={data} />
+      <HomePage data={{ ...data, ...homeData }} />
     </div>
   )
 }
